@@ -7,6 +7,7 @@ void main() {
   tampilkanRiwayat(riwayat);
 }
 
+// Fungsi untuk menghitung BMI dan menyimpan hasil ke riwayat
 void hitungBMI(double tinggiCm, double beratKg, List<Map<String, dynamic>> riwayat) {
   // Konversi tinggi dari cm ke m
   double tinggiM = tinggiCm / 100;
