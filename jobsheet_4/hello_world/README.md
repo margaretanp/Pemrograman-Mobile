@@ -2,6 +2,7 @@
 
 A new Flutter project.
 ![screenshot-hello_wrold](img/01.png)
+![screenshot-hello_wrold](img/02.png)
 
 ## Getting Started
 
