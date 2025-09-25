@@ -1,6 +1,7 @@
 # hello_world
 
 A new Flutter project.
+![screenshot-hello_wrold](img/01.png)
 
 ## Getting Started
 
