@@ -255,3 +255,41 @@ Bangun baris yang berisi kolom-kolom ini dengan memanggil fungsi dan set warna, 
 ### Langkah 3: Tambah button section ke body
 Tambahkan variabel `buttonSection` ke dalam `body` seperti berikut:
 ![image langkah 1 praktikum 2](./image/p2_langkah1.png)
+
+## Praktikum 3: Implementasi text section
+### Langkah 1: Buat widget textSection
+Tentukan bagian teks sebagai variabel. Masukkan teks ke dalam `Container` dan tambahkan padding di sepanjang setiap tepinya. Tambahkan kode berikut tepat di bawah deklarasi `buttonSection`:
+```dart
+Widget textSection = Container(
+  padding: const EdgeInsets.all(32),
+  child: const Text(
+    'Carilah teks di internet yang sesuai '
+    'dengan foto atau tempat wisata yang ingin'
+    'Anda tampilkan.'
+    'Tambahkan nama dan NIM Anda sebagai '
+    'identitas hasil pekerjaan Anda. '
+    'Selamat mengerjakan 🙂.',
+    softWrap: true,
+  ),
+);
+```
+
+```dart
+Widget textSection = Container(
+  padding: const EdgeInsets.all(32),
+  child: const Text(
+    'Ranu Kumbolo adalah danau indah yang berada di kaki Gunung Semeru, Jawa Timur,'
+    'ketinggian 2.400 mdpl, menjadi titik transit dan tempat favorit bagi pendaki karena'
+    'pemandangannya yang menakjubkan, udara sejuk, dan air bersihnya yang melimpah. '
+    'untuk kebutuhan pendakian, serta langit malam bertabur bintang yang memukau '
+    '2341760017 - Marga Reta Novia Putri🙂.',
+    softWrap: true,
+  ),
+);
+```
+
+Dengan memberi nilai `softWrap` = true, baris teks akan memenuhi lebar kolom sebelum membungkusnya pada batas kata.
+### Langkah 2: Tambahkan variabel text section ke body
+Tambahkan widget variabel textSection ke dalam body seperti berikut:
+![image langkah 1 praktikum3](./image/p3_langkah1.png)
+

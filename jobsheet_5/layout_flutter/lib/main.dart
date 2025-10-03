@@ -55,6 +55,19 @@ class MyApp extends StatelessWidget {
     _buildButtonColumn(color, Icons.share, 'SHARE'),
   ],
 );
+
+Widget textSection = Container(
+  padding: const EdgeInsets.all(32),
+  child: const Text(
+    'Ranu Kumbolo adalah danau indah yang berada di kaki Gunung Semeru, Jawa Timur,'
+    'ketinggian 2.400 mdpl, menjadi titik transit dan tempat favorit bagi pendaki karena'
+    'pemandangannya yang menakjubkan, udara sejuk, dan air bersihnya yang melimpah. '
+    'untuk kebutuhan pendakian, serta langit malam bertabur bintang yang memukau '
+    '2341760017 - Marga Reta Novia Putri🙂.',
+    softWrap: true,
+  ),
+);
+
     return MaterialApp(
       title: 'Flutter layout: Margareta NIM: 2341760017',
       home: Scaffold(
@@ -62,7 +75,7 @@ class MyApp extends StatelessWidget {
           title: const Text('Flutter layout demo'),
         ),
         body: Column(
-          children: [titleSection, buttonSection], // ganti Hello World dengan titleSection
+          children: [titleSection, buttonSection, textSection], // ganti Hello World dengan titleSection
         ),
       ),
     );
