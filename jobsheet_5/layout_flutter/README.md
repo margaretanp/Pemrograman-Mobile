@@ -243,6 +243,15 @@ Buat Fungsi untuk menambahkan ikon langsung ke kolom. Teks berada di dalam `Cont
 
 Bangun baris yang berisi kolom-kolom ini dengan memanggil fungsi dan set warna, `Icon`, dan teks khusus melalui parameter ke kolom tersebut. Sejajarkan kolom di sepanjang sumbu utama menggunakan `MainAxisAlignment.spaceEvenly` untuk mengatur ruang kosong secara merata sebelum, di antara, dan setelah setiap kolom. Tambahkan kode berikut tepat di bawah deklarasi `titleSection` di dalam metode `build()`:
 ### lib/main.dart (buttonSection)
-
+```dart
+  Widget buttonSection = Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    _buildButtonColumn(color, Icons.call, 'CALL'),
+    _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
+    _buildButtonColumn(color, Icons.share, 'SHARE'),
+  ],
+  ```
 ### Langkah 3: Tambah button section ke body
 Tambahkan variabel `buttonSection` ke dalam `body` seperti berikut:
+![image langkah 1 praktikum 2](./image/p2_langkah1.png)
