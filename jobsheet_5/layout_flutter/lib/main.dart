@@ -74,8 +74,15 @@ Widget textSection = Container(
         appBar: AppBar(
           title: const Text('Flutter layout demo'),
         ),
-        body: Column(
-          children: [titleSection, buttonSection, textSection], // ganti Hello World dengan titleSection
+        body: ListView(
+          children: [
+            Image.asset(
+              'image/ranu_kumbolo.jpg',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
+            titleSection, buttonSection, textSection], // ganti Hello World dengan titleSection
         ),
       ),
     );

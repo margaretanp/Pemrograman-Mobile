@@ -293,3 +293,61 @@ Dengan memberi nilai `softWrap` = true, baris teks akan memenuhi lebar kolom seb
 Tambahkan widget variabel textSection ke dalam body seperti berikut:
 ![image langkah 1 praktikum3](./image/p3_langkah1.png)
 
+## Praktikum 4: Implementasi image section
+## Langkah 1: Siapkan aset gambar
+Anda dapat mencari gambar di internet yang ingin ditampilkan. Buatlah folder `images` di root project layout_flutter. Masukkan file gambar tersebut ke folder `images`, lalu set nama file tersebut ke file `pubspec.yaml` seperti berikut:
+![image langkah 1 praktikum 4](./image/p4_langkah1.png)
+
+Contoh nama file gambar di atas adalah `ranu_kumbolo.jpg`
+
+## Langkah 2: Tambahkan gambar ke body
+
+Tambahkan aset gambar ke dalam `body` seperti berikut:
+```dart
+   return MaterialApp(
+      title: 'Flutter layout: Margareta NIM: 2341760017',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Flutter layout demo'),
+        ),
+        body: Column(
+          children: [
+            Image.asset(
+              'image/ranu.kumbolo.jpg',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
+            titleSection, buttonSection, textSection], // ganti Hello World dengan titleSection
+        ),
+      ),
+    );
+  ```
+
+`BoxFit.cover` memberi tahu kerangka kerja bahwa gambar harus sekecil mungkin tetapi menutupi seluruh kotak rendernya.
+
+## Langkah 3: Terakhir, ubah menjadi ListView
+
+Pada langkah terakhir ini, atur semua elemen dalam `ListView`, bukan Column, karena `ListView` mendukung scroll yang dinamis saat aplikasi dijalankan pada perangkat yang resolusinya lebih kecil.
+```dart
+    return MaterialApp(
+      title: 'Flutter layout: Margareta NIM: 2341760017',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Flutter layout demo'),
+        ),
+        body: ListView(
+          children: [
+            Image.asset(
+              'image/ranu.kumbolo.jpg',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
+            titleSection, buttonSection, textSection], // ganti Hello World dengan titleSection
+        ),
+      ),
+    );
+  }
+  ```
+  ![image langkah 2 praktikum 4](./image/p4_langkah2.png) 
