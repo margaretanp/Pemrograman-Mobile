@@ -18,7 +18,7 @@ class ScanScreen extends StatefulWidget {
 class _ScanScreenState extends State<ScanScreen> {
   CameraController? _controller;
   Future<void>? _initializeControllerFuture;
-  String? _errorMessage;  // Tambahkan variable untuk pesan error
+  String? _errorMessage; // Tambahkan variable untuk pesan error
 
   @override
   void initState() {
@@ -38,24 +38,28 @@ class _ScanScreenState extends State<ScanScreen> {
       }
 
       _controller = CameraController(
-        cameras[0], 
+        cameras[0],
         ResolutionPreset.medium,
         enableAudio: false, // Disable audio karena tidak dibutuhkan
       );
 
       _initializeControllerFuture = _controller!.initialize();
       await _initializeControllerFuture; // Tunggu sampai benar-benar diinisialisasi
-      
+
       if (mounted) {
         setState(() {
           _errorMessage = null;
         });
       }
     } catch (e) {
-      setState(() {
-        _errorMessage = 'Error: $e';
-      });
-      debugPrint("Error inisialisasi kamera: $e");
+      debugPrint('Error saat mengambil foto: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Pemindaian Gagal! Periksa Izin Kamera atau coba lagi.',
+          ),
+        ),
+      );
     }
   }
 
@@ -69,8 +73,9 @@ class _ScanScreenState extends State<ScanScreen> {
   Future<String> _ocrFromFile(File imageFile) async {
     final inputImage = InputImage.fromFile(imageFile);
     final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
-    final RecognizedText recognizedText =
-        await textRecognizer.processImage(inputImage);
+    final RecognizedText recognizedText = await textRecognizer.processImage(
+      inputImage,
+    );
     await textRecognizer.close();
     return recognizedText.text;
   }
@@ -128,14 +133,18 @@ class _ScanScreenState extends State<ScanScreen> {
 
     // Tampilkan loading
     if (_controller == null || !_controller!.value.isInitialized) {
-      return const Scaffold(
-        body: Center(
+      return Scaffold(
+        backgroundColor: Colors.grey[900],
+        body: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircularProgressIndicator(),
-              SizedBox(height: 16),
-              Text('Memuat kamera...'),
+              CircularProgressIndicator(color: Colors.yellow),
+              SizedBox(height: 20),
+              Text(
+                'Memuat Kamera... Harap tunggu.',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
             ],
           ),
         ),
