@@ -9,8 +9,14 @@ class MasterPlanApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     theme: ThemeData(primarySwatch: Colors.purple),
-     home: PlanScreen(),
+      debugShowCheckedModeBanner: false,
+      title: 'Master Plan Margareta',
+      theme: ThemeData(
+        useMaterial3: false, // pakai gaya Material 2 (agar warna AppBar tampil)
+        primarySwatch: Colors.purple,
+        scaffoldBackgroundColor: Colors.white,
+      ),
+      home: const PlanScreen(),
     );
   }
 }

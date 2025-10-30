@@ -11,6 +11,13 @@ class PlanScreen extends StatefulWidget {
 class _PlanScreenState extends State<PlanScreen> {
   Plan plan = const Plan();
   late ScrollController scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    scrollController = ScrollController();
+  }
+
   @override
   void dispose() {
     scrollController.dispose();
@@ -18,19 +25,14 @@ class _PlanScreenState extends State<PlanScreen> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    scrollController = ScrollController()
-      ..addListener(() {
-        FocusScope.of(context).requestFocus(FocusNode());
-      });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       // ganti ‘Namaku' dengan Nama panggilan Anda
-      appBar: AppBar(title: const Text('Master Plan Margareta')),
+      appBar: AppBar(
+        title: const Text('Master Plan Margareta'),
+        backgroundColor: Colors.purple,
+        foregroundColor: Colors.white,
+      ),
       body: _buildList(),
       floatingActionButton: _buildAddTaskButton(),
     );
@@ -38,7 +40,8 @@ class _PlanScreenState extends State<PlanScreen> {
 
   Widget _buildAddTaskButton() {
     return FloatingActionButton(
-      child: const Icon(Icons.add),
+       backgroundColor: Colors.purple,
+      child: const Icon(Icons.add, color: Colors.white),
       onPressed: () {
         setState(() {
           plan = Plan(
@@ -58,6 +61,7 @@ class _PlanScreenState extends State<PlanScreen> {
       keyboardDismissBehavior: Theme.of(context).platform == TargetPlatform.iOS
           ? ScrollViewKeyboardDismissBehavior.onDrag
           : ScrollViewKeyboardDismissBehavior.manual,
+      padding: const EdgeInsets.all(8.0),
     );
   }
 
@@ -65,6 +69,7 @@ class _PlanScreenState extends State<PlanScreen> {
     return ListTile(
       leading: Checkbox(
         value: task.complete,
+        activeColor: Colors.purple,
         onChanged: (selected) {
           setState(() {
             plan = Plan(
@@ -80,6 +85,10 @@ class _PlanScreenState extends State<PlanScreen> {
       ),
       title: TextFormField(
         initialValue: task.description,
+        decoration: const InputDecoration(
+          hintText: 'Enter task description',
+          border: UnderlineInputBorder(),
+        ),
         onChanged: (text) {
           setState(() {
             plan = Plan(
