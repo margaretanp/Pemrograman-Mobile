@@ -54,13 +54,6 @@ class _ResultScreenState extends State<ResultScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            Center(
-              child: ElevatedButton.icon(
-                onPressed: _speak,
-                icon: const Icon(Icons.volume_up),
-                label: const Text('Bacakan Teks'),
-              ),
-            ),
           ],
         ),
       ),
